@@ -1,0 +1,2 @@
+class ComplimentsController < ApplicationController
+end
