@@ -1,0 +1,6 @@
+%p= compliment.content
+%p
+  %em &mdash; #{compliment.sender.name}
+%p
+  - if compliment.recipient_id == current_user.id || compliment.sender_id == current_user.id
+    #{link_to 'Delete', compliment, method: :delete, data: {confirm: 'Are you sure?'}}

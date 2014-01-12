@@ -1,0 +1,62 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'bootstrap';
+$white-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+@mixin bg-cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -background-size: cover;
+}
+@mixin radius {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+// body {
+//   padding-top: 70px;
+// }
+
+.background1 {
+  background-image: image-url('page-bg.jpg');
+  @include bg-cover;
+}
+
+.background2 {
+  background-image: image-url('fresh_snow.png');
+  @include bg-cover;
+}
+
+.carousel-caption {
+  overflow: hidden;
+}
+
+.inner {
+  padding-bottom: 40px;
+  text-align: center;
+  color: white;
+  text-shadow: $white-shadow;
+}
+
+.inner input, .inner select {
+  background: rgba(255,255,255,0.5);
+  color: white;
+  text-shadow: $white-shadow;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.alert, .jumbotron {
+  text-align: center;
+}
+
+.jumbotron p {
+  color: black;
+}
+
+.jumbotron {
+  @include radius;
+}

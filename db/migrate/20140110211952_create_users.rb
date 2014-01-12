@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :password_digest
-      add_index :email, unique: true
 
       t.timestamps
     end

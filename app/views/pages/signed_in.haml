@@ -1,0 +1,27 @@
+#myCarousel.carousel.slide{data: {ride: 'carousel'}}
+  .carousel-inner
+    - @compliments.reverse.each do |compliment|
+      - if compliment == Compliment.last
+        .item.active
+          = image_tag 'transparent2.png', data: {src: 'holder.js/900x500'}, class: 'carousel-image'
+          .container
+            .carousel-caption
+              %h4 Dear #{compliment.recipient.name},
+              %h1= compliment.content
+              %h4 &mdash; #{compliment.sender.name}
+      - else
+        .item
+          = image_tag 'transparent2.png', data: {src: 'holder.js/900x500'}, class: 'carousel-image'
+          .container
+            .carousel-caption
+              %h4 Dear #{compliment.recipient.name},
+              %h1= compliment.content
+              %h4 -- #{compliment.sender.name}
+  / %a{class: 'left carousel-control', href: '#myCarousel', data: {slide: 'prev'}}
+  /   %span{class: 'glyphicon glyphicon-chevron-left'}
+  / %a{class: 'right carousel-control', href: '#myCarousel', data: {slide: 'next'}}
+  /   %span{class: 'glyphicon glyphicon-chevron-right'}
+.container
+  .col-md-6.col-md-offset-3.inner
+    %h1 send a compliment:
+    = render 'compliments/form'

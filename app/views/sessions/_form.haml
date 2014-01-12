@@ -1,0 +1,10 @@
+= form_for :session, url: sessions_path do |f|
+  .form-group
+    = f.text_field :email, placeholder: 'Email'
+  .form-group
+    = f.password_field :password, placeholder: 'Password'
+  = f.submit 'Sign in', class: 'btn btn-default'
+
+%p
+  New user?
+  = link_to 'Sign up now!', signup_path

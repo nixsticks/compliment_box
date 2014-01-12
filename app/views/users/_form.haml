@@ -1,0 +1,12 @@
+= form_for @user do |f|
+  = render 'shared/error_messages'
+  .form-group
+    = f.text_field :name, placeholder: 'Name'
+  .form-group
+    = f.text_field :email, placeholder: 'Email'
+  .form-group
+    = f.password_field :password, placeholder: 'Password'
+  .form-group
+    = f.password_field :password_confirmation, placeholder: 'Confirm password'
+
+  = f.submit 'Sign up!', class: 'btn btn-default'

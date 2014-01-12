@@ -1,0 +1,28 @@
+.col-md-10.col-md-offset-1
+  %nav{class: 'navbar navbar-default', role: 'navigation'}
+    .navbar-header
+      %button{class: 'navbar-toggle', data: {toggle: 'collapse', target: '#collapse'}}
+        %span{class: 'sr-only'} Toggle navigation
+        - 3.times do
+          %span{class: 'icon-bar'}
+      %a{class: 'navbar-brand', href: '/'} Compliment Mailbox
+
+    .collapse.navbar-collapse#collapse
+      %ul{class: 'nav navbar-nav'}
+        %li
+          = link_to 'Home', root_path
+        %li
+          = link_to 'Users', users_path
+      %ul{class: 'nav navbar-nav navbar-right'}
+        - if signed_in?
+          %li
+            = link_to current_user.name, user_path(current_user)
+          %li
+            = link_to 'Sign Out', signout_path, method: :delete
+        - else
+          %li
+            = link_to 'Sign In', signin_path
+          %li
+            = link_to 'Sign Up', signup_path
+  - flash.each do |key, value|
+    <div class="alert alert-#{key}">#{value}</div>

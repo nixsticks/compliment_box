@@ -1,0 +1,9 @@
+= form_for @compliment do |f|
+  .form-group
+    = f.hidden_field :sender_id, value: current_user.id, class: 'form-control'
+  .form-group
+    = f.text_field :content, class: 'form-control'
+  .form-group
+    = f.collection_select :recipient_id, User.where.not(id: current_user.id), :id, :name, {}, class: 'form-control'
+  %br
+  = f.submit "Make someone's day!", class: 'btn btn-default'

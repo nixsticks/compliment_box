@@ -1,4 +1,16 @@
 ComplimentBox::Application.routes.draw do
+  root 'pages#index'
+  get '/about' => 'pages#about'
+
+  resources :users
+  get '/signup' => 'users#new'
+
+  resources :compliments, only: [:new, :create, :destroy]
+  
+  resources :sessions, only: [:new, :create, :destroy]
+  get '/signin' => 'sessions#new'
+  delete '/signout' => 'sessions#delete'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
