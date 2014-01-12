@@ -17,7 +17,7 @@ gem 'haml'
 gem 'haml-rails'
 
 group :production do
-  gem 'postgres'
+  gem 'pg'
 end
 
 # Use Uglifier as compressor for JavaScript assets
