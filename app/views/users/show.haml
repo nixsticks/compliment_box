@@ -1,11 +1,18 @@
 %h1= @user.name
 %h3 Compliments Sent:
 - if @user.sent_compliments.any?
-  = render partial: 'compliments/sent_compliment', collection: @sent, as: 'compliment'
+  = render partial: 'compliments/sent_compliment', collection: @user.sent_compliments, as: 'compliment'
 - else
   %p This user hasn't sent any compliments.
 %h3 Compliments Received:
 - if @user.received_compliments.any?
-  = render partial: 'compliments/received_compliment', collection: @received, as: 'compliment'
+  = render partial: 'compliments/received_compliment', collection: @user.received_compliments, as: 'compliment'
+  - unless @user.id == current_user.id 
+    .new-compliment
+      %button{class: 'btn btn-default'} Compliment #{@user.name}!
 - else
-  %p This user hasn't received any compliments yet. Why not pay them one?
+  %p This user hasn't received any compliments yet.
+  .new-compliment
+    %button{class: 'btn btn-default'} Why not pay them one?
+.hidden-form
+  = render partial: 'compliments/bare_form'

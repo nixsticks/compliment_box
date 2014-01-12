@@ -3,10 +3,10 @@
   %head
     %title Make Someone's Day
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body{class: 'background1'}
     .container
       = render 'shared/header'
       .col-md-6.col-md-offset-3.body
         = yield
+    = javascript_include_tag "application", "data-turbolinks-track" => true

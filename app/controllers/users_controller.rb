@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @sent = @user.sent_compliments
     @received = @user.received_compliments
+    @compliment = Compliment.new
   end
 
   def index

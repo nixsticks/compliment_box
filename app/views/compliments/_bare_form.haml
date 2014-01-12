@@ -1,0 +1,8 @@
+= form_for @compliment do |f|
+  .form-group
+    = f.hidden_field :sender_id, value: current_user.id, class: 'form-control'
+  .form-group
+    = f.hidden_field :recipient_id, value: @user.id, class: 'form-control'
+  .form-group
+    = f.text_field :content, class: 'form-control'
+  = f.submit "Make #{@user.name}'s day!", class: 'btn btn-default'
