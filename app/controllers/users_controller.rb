@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome!"
+      UserMailer.welcome_email(@user).deliver
       redirect_back_or @user
     else
       flash.now[:danger] = "Unable to create account."

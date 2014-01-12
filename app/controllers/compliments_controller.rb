@@ -9,6 +9,7 @@ class ComplimentsController < ApplicationController
     @compliment = Compliment.new(compliment_params)
     if @compliment.save
       flash[:success] = "You sweetheart, you!"
+      ComplimentMailer.compliment_email(@compliment).deliver
       redirect_to root_path
     else
       flash[:danger] = "Content cannot be empty or longer than 100 characters."
@@ -17,8 +18,9 @@ class ComplimentsController < ApplicationController
   end
 
   def destroy
+    session[:return_to] = request.referer
     Compliment.find(params[:id]).destroy
-    redirect_to user_path(current_user)
+    redirect_to session.delete(:return_to)
   end
 
   private
