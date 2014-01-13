@@ -24,11 +24,6 @@ $white-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   @include bg-cover;
 }
 
-.background2 {
-  background-image: image-url('fresh_snow.png');
-  @include bg-cover;
-}
-
 .carousel-caption {
   overflow: hidden;
 }
