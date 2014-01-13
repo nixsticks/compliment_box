@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       sign_in @user
       flash[:success] = "Welcome!"
       UserMailer.welcome_email(@user).deliver
-      redirect_back_or @user
+      redirect_to root_path
     else
       flash.now[:danger] = "Unable to create account."
       render 'new'
